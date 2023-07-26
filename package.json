@@ -1,0 +1,23 @@
+{
+  "name": "vue-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "markdown-it": "^13.0.1",
+    "vite": "^4.4.7",
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3"
+  }
+}
