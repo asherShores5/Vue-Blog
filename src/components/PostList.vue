@@ -10,21 +10,31 @@
         </li>
       </ul>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'PostList',
-    data() {
-      return {
-        posts: [
-          { id: 1, title: 'First Blog Post' },
-          { id: 2, title: 'Second Blog Post' },
-          { id: 3, title: 'Third Blog Post' },
-          // Add more sample posts or replace with real data from the API
-        ],
-      };
+</template>
+
+<script>
+import axios from 'axios'; // Import Axios
+
+export default {
+  name: 'PostList',
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  async created() {
+    this.posts = await this.fetchPosts();
+  },
+  methods: {
+    async fetchPosts() {
+      try {
+        const response = await axios.get('http://localhost:3001/posts'); // Replace the URL with your JSON server endpoint
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
     },
-  };
-  </script>
-  
+  },
+};
+</script>
