@@ -22,6 +22,15 @@
 <script>
 export default {
     name: 'About',
+
+    methods: {
+        // ... (existing methods)
+
+        goToAccountPage() {
+            // You can use Vue Router to navigate to the account page
+            this.$router.push('/account'); // Replace '/account' with the actual route for the account page
+        },
+    }
 };
 </script>
 

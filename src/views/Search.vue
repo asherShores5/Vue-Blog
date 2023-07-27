@@ -5,7 +5,10 @@
 
         <ul v-if="searchResults.length > 0" class="search-results">
             <li v-for="result in searchResults" :key="result.id">
-                {{ result.title }}
+                <!-- Replace the list item content with a router-link styled as a button -->
+                <router-link :to="'/post/' + result.id" class="btn btn-secondary btn-block">
+                    {{ result.title }}
+                </router-link>
             </li>
         </ul>
 
@@ -14,31 +17,49 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
             searchQuery: '',
             searchResults: [],
-            // Replace this with your actual search data or API endpoint
-            searchData: [
-                { id: 1, title: 'Sample Result 1' },
-                { id: 2, title: 'Sample Result 2' },
-                { id: 3, title: 'Sample Result 3' },
-                // Add more search results as needed
-            ],
+            allPosts: [], // add this line
+            allTitles: [], // array to store all titles
         };
     },
+    async created() {
+        // Fetch all posts from the JSON server directly in the SearchPage component
+        this.allPosts = await this.fetchPosts(); // change this line
+        this.searchResults = [...this.allPosts]; // initialize searchResults with allPosts
+
+        // retrieve all the titles
+        this.allTitles = this.allPosts.map(post => post.title);
+        // print all the titles
+        console.log(this.allTitles);
+    },
     methods: {
+        async fetchPosts() {
+            try {
+                const response = await axios.get('http://localhost:3001/posts'); // Replace the URL with your JSON server endpoint
+                return response.data || []; // Access the posts directly from the response data
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        },
         handleSearch() {
             const query = this.searchQuery.toLowerCase();
-            // Filter search results based on the query
-            this.searchResults = this.searchData.filter((item) =>
-                item.title.toLowerCase().includes(query)
+            // Filter the posts based on the search query
+            this.searchResults = this.allPosts.filter((post) =>
+                post.title.toLowerCase().includes(query)
             );
         },
     },
 };
 </script>
+
+
 
 <style>
 /* Add some basic styling for the search page */
@@ -67,5 +88,25 @@ input {
 
 li {
     margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn:hover {
+    background: #0056b3;
 }
 </style>

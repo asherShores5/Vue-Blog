@@ -4,28 +4,28 @@
         <div class="hero">
             <h1>Welcome to Our Blog</h1>
             <p>Discover Interesting Stories and Ideas</p>
-            <router-link to="/blog" class="cta-button">Explore More</router-link>
+            <router-link to="/blog" class="cta-button btn btn-primary">Explore More</router-link>
         </div>
 
         <!-- Featured Blog Post Section -->
         <div class="featured-blog-post" v-if="featuredPost">
-            <h2>Featured Post</h2>
+            <h2 class="mb-4">Featured Post</h2>
             <div class="post">
-                <h3>{{ featuredPost.title }}</h3>
+                <h3 class="mb-3">{{ featuredPost.title }}</h3>
                 <p>{{ featuredPost.summary }}</p>
-                <router-link :to="'/post/' + featuredPost.id">Read More</router-link>
+                <router-link :to="'/post/' + featuredPost.id" class="btn btn-secondary">Read More</router-link>
             </div>
         </div>
 
         <!-- Recent Blog Posts Section -->
-        <div class="recent-blog-posts">
-            <h2>Recent Posts</h2>
-            <div v-for="post in recentPosts" :key="post.id" class="post">
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.summary }}</p>
-                <router-link :to="'/post/' + post.id">Read More</router-link>
-            </div>
-        </div>
+    <div class="recent-blog-posts">
+      <h2 class="mb-4">Recent Posts</h2>
+      <div v-for="post in recentPosts" :key="post.id" class="post">
+        <h3 class="mb-3">{{ post.title }}</h3>
+        <p>{{ post.summary }}</p>
+        <router-link :to="'/post/' + (post.id || '')" class="btn btn-secondary">Read More</router-link>
+      </div>
+    </div>
     </div>
 </template>
 
@@ -59,8 +59,6 @@ export default {
 };
 </script>
 
-
-
 <style>
 /* Add some basic styling for the landing page */
 .landing-page {
@@ -84,18 +82,20 @@ export default {
     margin-bottom: 20px;
 }
 
-.cta-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+/* Bootstrap button style */
+.cta-button,
+.post a.btn {
     text-decoration: none;
 }
 
-.cta-button:hover {
-    background-color: #0056b3;
+.post a.btn:hover {
+    text-decoration: none;
+}
+
+/* Center the buttons */
+.cta-button {
+    display: block;
+    margin: 0 auto;
 }
 
 .featured-blog-post {
@@ -121,8 +121,12 @@ export default {
     margin-bottom: 10px;
 }
 
-.post a {
-    color: #007bff;
+/* Bootstrap button style */
+.post a.btn {
+    text-decoration: none;
+}
+
+.post a.btn:hover {
     text-decoration: none;
 }
 </style>

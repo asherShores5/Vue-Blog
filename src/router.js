@@ -6,7 +6,10 @@ import PostDetail from './components/PostDetail.vue';
 import About from './views/About.vue';
 import Contact from './views/Contact.vue';
 import FAQ from './views/FAQ.vue';
-import Search from './views/search.vue';
+import Search from './views/Search.vue';
+import Create from './views/Create.vue';
+import Login from './views/Login.vue';
+import Account from './views/Account.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -17,6 +20,9 @@ const routes = [
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/FAQ', name: 'FAQ', component: FAQ },
   { path: '/search', name: 'Search', component: Search },
+  { path: '/create', name: 'Create', component: Create },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/account', name: 'Account', component: Account },
 ];
 
 const router = createRouter({
