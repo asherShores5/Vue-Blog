@@ -22,16 +22,26 @@ export default {
         return {
             faqItems: [
                 {
-                    question: 'What is Vue.js?',
-                    answer: 'Vue.js is a progressive JavaScript framework for building user interfaces.',
+                    question: 'How can I create a new blog post?',
+                    answer: 'To create a new blog post, log in to your account, navigate to the dashboard, and click on "Create New Post." Fill in the title, content, and any other details, then click "Publish." Your post will be live on the blog!',
                     isOpen: false,
                 },
                 {
-                    question: 'How do I install Vue CLI?',
-                    answer: 'You can install Vue CLI globally using npm or yarn: npm install -g @vue/cli',
+                    question: 'Can I edit or delete my blog posts?',
+                    answer: 'Yes, you can edit or delete your blog posts. After logging in, go to the dashboard, find the post you want to edit or delete, and click the corresponding action buttons.',
                     isOpen: false,
                 },
-                // Add more FAQ items as needed
+                {
+                    question: 'How do I leave a comment on a blog post?',
+                    answer: 'To leave a comment on a blog post, scroll to the bottom of the post and find the comment section. Enter your comment and click "Submit." Please keep your comments respectful and relevant to the post content.',
+                    isOpen: false,
+                },
+                {
+                    question: 'How do I navigate through different blog posts?',
+                    answer: 'You can navigate through different blog posts by using the navigation buttons or links on the blog page. Click on the post title or "Read More" link to view the full post. Use the "Previous" and "Next" buttons to move between posts.',
+                    isOpen: false,
+                },
+                // Add more blog-related FAQ items as needed
             ],
         };
     },

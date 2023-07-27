@@ -1,20 +1,19 @@
 {
-    "posts": [
-      {
-        "id": 1,
-        "title": "Post 1",
-        "content": "This is the content of Post 1."
-      },
-      {
-        "id": 2,
-        "title": "Post 2",
-        "content": "This is the content of Post 2."
-      },
-      {
-        "id": 3,
-        "title": "Post 3",
-        "content": "This is the content of Post 3. Hello There!"
-      }
-    ]
-  }
-  
+  "posts": [
+    {
+      "id": 1,
+      "title": "Welcome Post!",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec nisi vitae ex blandit auctor. Vestibulum dignissim faucibus sapien eu feugiat. Ut eu laoreet nisl. Suspendisse a arcu quis justo sollicitudin interdum nec a ipsum. Mauris consequat, massa nec pellentesque euismod, neque est vestibulum enim, eu rhoncus lectus velit eget ex. Nam fringilla, enim ut gravida placerat, nunc lacus lacinia purus, at gravida lectus tellus quis erat. Nam sed fermentum justo. Quisque efficitur enim non diam volutpat consectetur. Vivamus in mauris quam. Etiam auctor, sapien vel efficitur faucibus, quam odio fermentum sem, ut laoreet ipsum quam sit amet magna. Sed vitae ex a magna vestibulum scelerisque nec vel justo. Sed tincidunt sapien mauris, ut sagittis odio lacinia eu. Donec vel volutpat purus."
+    },
+    {
+      "id": 2,
+      "title": "Super Cool Post",
+      "content": "Vestibulum eget varius elit. Cras vel dolor et mauris lacinia maximus et nec elit. Fusce ac erat dolor. Nulla facilisi. Integer a neque et risus luctus aliquam. Vivamus non urna sit amet ex feugiat laoreet. Etiam vestibulum velit sit amet nunc facilisis, in egestas turpis lobortis. Curabitur feugiat ipsum non lectus suscipit, id luctus elit aliquam. Integer lacinia, velit vel rhoncus aliquet, risus ipsum elementum tellus, et bibendum erat lacus eu sapien."
+    },
+    {
+      "id": 3,
+      "title": "Kinda Cool Post",
+      "content": "Praesent quis erat eget sapien vestibulum auctor a vel turpis. Sed eu leo et tortor faucibus laoreet. Donec ultricies, felis at consequat facilisis, quam nunc malesuada felis, sit amet tristique nisi turpis vel elit. Cras in tristique ipsum. Vestibulum vel nulla id quam fermentum maximus. Nulla facilisi. Vestibulum nec odio eget mi rhoncus fermentum. Nulla id tortor nec risus interdum scelerisque vel ut nisi. Integer nec volutpat eros."
+    }
+  ]
+}
