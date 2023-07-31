@@ -4,7 +4,8 @@
     <h1>A Vue into Web Design</h1>
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/blog">Blog</router-link>      <router-link to="/create">Create</router-link>
+      <router-link to="/blog">Blog</router-link>      
+      <router-link to="/create">Create</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
       <router-link to="/FAQ">FAQ</router-link>

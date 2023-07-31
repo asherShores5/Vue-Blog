@@ -18,6 +18,13 @@ server.use(middlewares);
 // Use JSON body-parser
 server.use(jsonServer.bodyParser);
 
+server.use((req, res, next) => {
+  if (req.method === 'POST') {
+    req.body.createdAt = Date.now();
+  }
+  next();
+});
+
 // Helper function to generate JWT token
 function generateToken(user) {
   const payload = { id: user.id, email: user.email };
@@ -32,13 +39,19 @@ const db = lowdb(adapter);
 // User login endpoint
 server.post('/login', (req, res) => {
   const { email, password } = req.body;
-  const user = db.get('users').find({ email, password }).value();
 
-  if (user) {
-    const token = generateToken(user);
-    return res.json({ token });
+  // Find the user in the usersData array based on the provided email
+  const user = usersData.find((user) => user.email === email);
+
+  if (user && user.password === password) {
+    // User found and password matches
+    // Generate the JWT with user information (excluding the password)
+    const { id, name, email } = user;
+    const token = jwt.sign({ id, name, email }, 'your-secret-key', { expiresIn: '1h' });
+    res.json({ token });
   } else {
-    return res.status(401).json({ error: 'Invalid credentials' });
+    // User not found or password does not match
+    res.status(401).json({ error: 'Invalid credentials' });
   }
 });
 

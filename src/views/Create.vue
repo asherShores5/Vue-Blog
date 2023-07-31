@@ -29,22 +29,15 @@ export default {
     },
     methods: {
         async handleSubmit() {
-            // Check if the form data is valid
             if (this.formData.title && this.formData.content) {
                 try {
-                    // Get the latest post ID from the JSON server
-                    const response = await axios.get('http://localhost:3001/posts');
-                    const posts = response.data.posts || [];
-                    const latestPostId = posts.length > 0 ? Math.max(...posts.map((post) => post.id)) : 0;
-
-                    // Create a new post object with the form data and a new ID
+                    // Create a new post object with the form data
                     const newPost = {
-                        id: latestPostId + 1,
                         title: this.formData.title,
                         content: this.formData.content,
                     };
 
-                    // Append the new post to the existing posts in the database
+                    // Post the new post data to the server
                     await axios.post('http://localhost:3001/posts', newPost);
 
                     // Reset the form data after successful submission
@@ -58,6 +51,7 @@ export default {
                 }
             }
         },
+
     },
 };
 </script>
