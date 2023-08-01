@@ -43,16 +43,13 @@ export default {
       try {
         // Make a GET request to the server to fetch user data
         const response = await axios.get('http://localhost:3001/users', {
-          headers: {
-            Authorization: localStorage.getItem('token'), // Send the JWT token in the request header
-          },
         });
 
         // Update the isLoggedIn and user data based on the response
         this.isLoggedIn = true;
         this.user = response.data;
       } catch (error) {
-        // If the request fails (e.g., due to invalid or expired token), reset the authentication state
+
         this.isLoggedIn = false;
         this.user = null;
         console.error('Fetch User Data Error:', error);

@@ -58,13 +58,6 @@ export default {
                     return;
                 }
 
-                // Handle the successful login
-                // Set the token cookie and redirect to the desired page
-                this.setTokenCookie('YOUR_JWT_TOKEN'); // Replace 'YOUR_JWT_TOKEN' with the actual token received from the server
-
-                // Redirect the user to the desired page (e.g., account page or dashboard)
-                // this.$router.push('/account');
-
                 // Clear any previous login errors and show success message to the user
                 this.loginError = '';
                 alert('Login successful!');
@@ -74,10 +67,6 @@ export default {
                 // Show error message to the user
                 this.loginError = 'An error occurred during login.';
             }
-        },
-        setTokenCookie(token) {
-            // Set the token in a cookie or in localStorage for future use
-            localStorage.setItem('jwt_token', token);
         },
     },
 };

@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     name: 'Account',
@@ -30,28 +29,12 @@ export default {
         },
     },
     methods: {
-        // Account.vue
-        async created() {
-            const token = localStorage.getItem('token');
-            try {
-                const response = await axios.get('http://localhost:3001/protected', {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-                this.$root.$user.current = response.data.user;
-            } catch (error) {
-                console.error('Failed to fetch user data:', error);
-            }
-        },
+
         async logout() {
             try {
                 // Emit an event up to the parent component (App.vue)
                 this.$emit('update:user', null);
                 this.$emit('update:isLoggedIn', false);
-
-                // Clear the JWT token from local storage
-                localStorage.removeItem('token');
 
                 // Redirect the user to the home page or any other page after logout
                 this.$router.push('/');

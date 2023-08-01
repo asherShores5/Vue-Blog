@@ -1,7 +1,6 @@
 // src/router.js
 import { createRouter, createWebHistory } from 'vue-router';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode'; // Install the 'jwt-decode' package
 import Home from './views/Home.vue';
 import PostList from './components/PostList.vue';
 import PostDetail from './components/PostDetail.vue';
@@ -34,26 +33,5 @@ const router = createRouter({
   routes,
 });
 
-// Axios interceptor to include JWT in every API request
-axios.interceptors.request.use((config) => {
-  const token = localStorage.getItem('jwt_token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
-
-// Axios interceptor to handle token expiration
-axios.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response && error.response.status === 401) {
-      // Token expired or unauthorized
-      console.error('Token expired or unauthorized:', error.response.data.error);
-      // Redirect the user to the login page or perform other actions
-    }
-    return Promise.reject(error);
-  }
-);
 
 export default router; // Export the 'router' object directly, without using the 'default' keyword.
